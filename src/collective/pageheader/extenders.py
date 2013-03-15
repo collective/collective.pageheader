@@ -5,12 +5,15 @@ from zope.interface import implements
 
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import ISchemaExtender
+from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
+
 
 from Products.Archetypes import atapi
 from plone.app.blob.field import ImageField
 # from plone.app.blob.field import BlobField
 
 from collective.pageheader.interfaces import IPageHeaderEnabled
+from collective.pageheader.interfaces import ILayer
 from collective.pageheader import _
 
 PAGEHEADER_FIELDNAME = 'pageheader_image'
@@ -21,8 +24,6 @@ class PageHeaderImageField(ExtensionField, ImageField):
 
 
 class BaseExtender(object):
-
-    implements(ISchemaExtender)
 
     fields = []
 
@@ -35,6 +36,8 @@ class BaseExtender(object):
 
 class Extender(BaseExtender):
     adapts(IPageHeaderEnabled)
+    implements(ISchemaExtender, IBrowserLayerAwareExtender)
+    layer = ILayer
 
     fields = [
         PageHeaderImageField(

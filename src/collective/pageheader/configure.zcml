@@ -24,7 +24,10 @@
     <implements interface=".interfaces.IPageHeaderEnabled" />
   </class>
 
-  <adapter factory=".extenders.Extender" />
+  <adapter
+    factory=".extenders.Extender"
+    provides="archetypes.schemaextender.interfaces.ISchemaExtender"
+    />
   
 
 </configure>
