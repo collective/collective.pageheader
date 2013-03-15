@@ -7,10 +7,8 @@ from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import ISchemaExtender
 from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
 
-
 from Products.Archetypes import atapi
 from plone.app.blob.field import ImageField
-# from plone.app.blob.field import BlobField
 
 from collective.pageheader.interfaces import IPageHeaderEnabled
 from collective.pageheader.interfaces import ILayer
@@ -43,7 +41,9 @@ class Extender(BaseExtender):
         PageHeaderImageField(
             PAGEHEADER_FIELDNAME,
             widget=atapi.ImageWidget(
-                label=_(u"Page Header"),
+                label=_(u"Page Header Image"),
+                description=_(u"An image to be used as the header of the page. "
+                              u"If none provided the one from the parent will be used if present.")
             ),
             validators=('isNonEmptyFile'),
             sizes={
