@@ -43,6 +43,6 @@ class PageHeaderView(BrowserView):
             return scales.scale(PAGEHEADER_FIELDNAME, **scale_kargs)
         return header
 
-    # @memoize_instance
+    @memoize_instance
     def get_header_image(self):
         return self.get_header(context=self.context, tag=1)
