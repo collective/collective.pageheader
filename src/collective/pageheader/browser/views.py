@@ -30,6 +30,9 @@ class PageHeaderView(BrowserView):
     def get_header(self, context=None, check_parent=True, tag=False, **kwargs):
         if context is None:
             context = self.context
+        if is_plone_site(context):
+            # go away immediately
+            return None
         enabled = IPageHeaderEnabled.providedBy(context)
         header = enabled and get_pageheader_image(context)
         if header is None and check_parent:
