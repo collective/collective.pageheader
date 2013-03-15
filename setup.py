@@ -41,6 +41,7 @@ setup(name='collective.pageheader',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'plone.app.blob >= 1.5.6'
       ],
       extras_require={'test': ['plone.app.testing']},
       entry_points="""
