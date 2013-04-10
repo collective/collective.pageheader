@@ -8,6 +8,8 @@ long_description = (
     + '\n' +
     open('CONTRIBUTORS.txt').read()
     + '\n' +
+    open('TODO.txt').read()
+    + '\n' +
     open('CHANGES.txt').read()
     + '\n')
 
